@@ -1,12 +1,75 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hello
-</body>
-</html>
+{% extends 'food/layout.html' %}
+{% load static %}
+
+{% block title %}
+Сильпо-онлайн-супермаркет
+{% endblock %}
+
+
+{% block content %}
+<div class="slider">
+    <div class="slider_line">
+        <img src="{% static 'food/img/1.png' %}" alt="">
+        <img src="{% static 'food/img/3.png' %}" alt="">
+        <img src="{% static 'food/img/5.png' %}" alt="">
+        <img src="{% static 'food/img/6.png' %}" alt="">
+        <img src="{% static 'food/img/7.png' %}" alt="">
+        <img src="{% static 'food/img/8.png' %}" alt="">
+    </div>
+    <button class="slider__btn-prew">&#10148</button>
+    <button class="slider__btn-next">&#10148</button>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
+
+<script>
+    // Пременные
+    const slider = document.querySelector('.slider');
+    const sliderImages = document.querySelectorAll('.slider__img');
+    const sliderLine = document.querySelector('.slider__line');
+
+    const sliderBtnNext = document.querySelector('.slider__btn-next');
+    const sliderBtnPrev = document.querySelector('.slider__btn-prev');
+
+    let sliderCount = 0;
+    let sliderWidth = slider.offsetwidth;
+
+    // Переменная по нажатию вперед
+    sliderBtnNext.addEventListener('click', nextSlider)
+
+    // Переменная по нажатию назад
+    sliderBtnPrev.addEventListener('click', prevSlider);
+
+    // Функции
+    function nextSlide() {
+        sliderCount++;
+        console.log(sliderCount);
+
+    //     if (sliderCount >= sliderImages.length) {
+    //         sliderCount = 0;
+    //     }
+    //     rollSlider();
+    }
+
+    function prevSlider() {
+        sliderCount--;
+        console.log(sliderCount);
+    //     if (sliderCount < 0) {
+    //         sliderCount = sliderImages.length -1;
+        }
+
+    //     rollSlider();
+    // }
+
+    // function rollSlider() {
+    //     sliderLine.style.transform = `translateX(${-sliderCount * sliderWidth}px)`;
+    // }
+
+    // setInterval(() => {
+    //     nextSlide()
+    // }, 3000 );
+
+</script>
