@@ -21,10 +21,9 @@ class CommentsInline(admin.StackedInline):
 class ManufacturerAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'get_image')
     list_display_links = ('name',)
-    readonly_fields = ('image',)
 
-    def get_image(self, objects):
-        return mark_safe(f"<img src={objects.image.url} width='50' ")
+    def get_image(self, obj):
+        return mark_safe(f"<img src={obj.image.url} width='50' height='60' ")
     
     get_image.short_description = 'Изображение'
 
@@ -39,10 +38,9 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('title', 'category__name')
     list_editable = ('draft',)
     inlines = [CommentsInline]
-    readonly_fields = ('photo',)
 
-    def get_photo(self, objects):
-        return mark_safe(f"<img src={objects.photo.url} width='50' ")
+    def get_photo(self, obj):
+        return mark_safe(f"<img src={obj.photo.url} width='50' ")
     
     get_photo.short_description = 'Изображение'
 
