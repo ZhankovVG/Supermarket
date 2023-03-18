@@ -7,69 +7,40 @@
 
 
 {% block content %}
-<div class="slider">
-    <div class="slider_line">
-        <img src="{% static 'food/img/1.png' %}" alt="">
-        <img src="{% static 'food/img/3.png' %}" alt="">
-        <img src="{% static 'food/img/5.png' %}" alt="">
-        <img src="{% static 'food/img/6.png' %}" alt="">
-        <img src="{% static 'food/img/7.png' %}" alt="">
-        <img src="{% static 'food/img/8.png' %}" alt="">
+<!-- Slider image start-->
+<div class="conteiner">
+    <div class="imeges">
+        <img class="slider__img" src="{% static 'food/img/1.png' %}" alt="">
+        <img class="slider__img" src="{% static 'food/img/2.jpg' %}" alt="">
+        <img class="slider__img" src="{% static 'food/img/3.png' %}" alt="">
+        <img class="slider__img" src="{% static 'food/img/5.png' %}" alt="">
+        <img class="slider__img" src="{% static 'food/img/6.png' %}" alt="">
+        <img class="slider__img" src="{% static 'food/img/7.png' %}" alt="">
+        <img class="slider__img" src="{% static 'food/img/8.png' %}" alt="">
+        <img class="slider__img" src="{% static 'food/img/9.jpg' %}" alt="">
     </div>
-    <button class="slider__btn-prew">&#10148</button>
-    <button class="slider__btn-next">&#10148</button>
-</div>
-{% endblock %}
+    <!-- Slider image end-->
 
-
-{% block footer %}
-{% endblock %}
-
-<script>
-    // Пременные
-    const slider = document.querySelector('.slider');
-    const sliderImages = document.querySelectorAll('.slider__img');
-    const sliderLine = document.querySelector('.slider__line');
-
-    const sliderBtnNext = document.querySelector('.slider__btn-next');
-    const sliderBtnPrev = document.querySelector('.slider__btn-prev');
-
-    let sliderCount = 0;
-    let sliderWidth = slider.offsetwidth;
-
-    // Переменная по нажатию вперед
-    sliderBtnNext.addEventListener('click', nextSlider)
-
-    // Переменная по нажатию назад
-    sliderBtnPrev.addEventListener('click', prevSlider);
-
-    // Функции
-    function nextSlide() {
-        sliderCount++;
-        console.log(sliderCount);
-
-    //     if (sliderCount >= sliderImages.length) {
-    //         sliderCount = 0;
-    //     }
-    //     rollSlider();
-    }
-
-    function prevSlider() {
-        sliderCount--;
-        console.log(sliderCount);
-    //     if (sliderCount < 0) {
-    //         sliderCount = sliderImages.length -1;
+    <script>
+        var indexValue = 0;
+        function SlideShow() {
+            setTimeout(SlideShow, 3500)
+            var x;
+            const elements = document.querySelectorAll('.slider__img');
+            for (x = 0; x < elements.length; x++) {
+                elements[x].style.display = "none";
+            }
+            indexValue++;
+            if (indexValue > elements.length) {
+                indexValue = 1;
+            }
+            elements[indexValue - 1].style.display = "block";
         }
+        SlideShow();
+    </script>
 
-    //     rollSlider();
-    // }
+    {% endblock %}
 
-    // function rollSlider() {
-    //     sliderLine.style.transform = `translateX(${-sliderCount * sliderWidth}px)`;
-    // }
 
-    // setInterval(() => {
-    //     nextSlide()
-    // }, 3000 );
-
-</script>
+    {% block footer %}
+    {% endblock %}
