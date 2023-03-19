@@ -19,7 +19,7 @@
         <div class="wrap-logo">
             <a href="{% url 'home' %}"><img src="{% static 'food/img/Silpo.png' %}" alt=""></a>
             <div class="search">
-                <form action="#" method="get">
+                <form action="{% url 'search' %}" method="get">
                     <input type="search" placeholder="Поиск ..." name="search">
                     <button type="submit" class="btn btn-info">Найти</button>
                 </form>
