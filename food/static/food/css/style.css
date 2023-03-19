@@ -23,7 +23,7 @@ header img {
 }
 
 .wrap-logo {
-    margin-top: -10px; 
+    margin-top: -10px;
 }
 
 header a {
@@ -37,7 +37,7 @@ header a {
 header nav a:hover {
     background-color: #f5d7c6;
     color: #212121;
-    border-radius: 20px ;
+    border-radius: 20px;
 }
 
 header a.active {
@@ -65,17 +65,62 @@ button {
 
 /* Slider image start */
 
-.conteiner {
+.slider {
     width: 100%;
-    height: 550px;
     overflow: hidden;
 }
 
-.conteiner .imeges {
+.slider .imeges {
     width: 100%;
 }
 
 .imeges img {
     width: 100%;
 }
+
 /* Slider image end */
+
+/* output of products start */
+
+.container {
+    width:250px; 
+    float:left; 
+    margin-bottom:20px; 
+    height:350px; 
+    overflow:hidden;
+    transition: transform 0.8s ease;
+}
+
+.container:hover {
+    transform: scale(1.1);
+}
+
+.container ul li {
+    list-style: none;
+}
+
+.photo {
+    flex: 1;
+    margin-right: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .info-row {
+        flex-direction: column;
+    }
+}
+
+/* output of products end */

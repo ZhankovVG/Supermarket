@@ -8,7 +8,7 @@
 
 {% block content %}
 <!-- Slider image start-->
-<div class="conteiner">
+<div class="slider">
     <div class="imeges">
         <img class="slider__img" src="{% static 'food/img/1.png' %}" alt="">
         <img class="slider__img" src="{% static 'food/img/2.jpg' %}" alt="">
@@ -19,28 +19,50 @@
         <img class="slider__img" src="{% static 'food/img/8.png' %}" alt="">
         <img class="slider__img" src="{% static 'food/img/9.jpg' %}" alt="">
     </div>
-    <!-- Slider image end-->
+</div>
+<!-- Slider image end-->
 
-    <script>
-        var indexValue = 0;
-        function SlideShow() {
-            setTimeout(SlideShow, 3500)
-            var x;
-            const elements = document.querySelectorAll('.slider__img');
-            for (x = 0; x < elements.length; x++) {
-                elements[x].style.display = "none";
-            }
-            indexValue++;
-            if (indexValue > elements.length) {
-                indexValue = 1;
-            }
-            elements[indexValue - 1].style.display = "block";
+<main>
+    {% for product in product_list %}
+    <div class="container">
+        <img class="photo" src="{{ product.photo.url }}">
+        <div class="info">
+            <ul>
+                {{ title.get_absolute.url }}
+                <h3>{{product.title}}</h3>
+                <li>{{ product.price }} грн</li>
+                <li>{{ product.weight }} гр.</li>
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+
+</main>
+
+
+
+
+
+<script>
+    var indexValue = 0;
+    function SlideShow() {
+        setTimeout(SlideShow, 3500)
+        var x;
+        const elements = document.querySelectorAll('.slider__img');
+        for (x = 0; x < elements.length; x++) {
+            elements[x].style.display = "none";
         }
-        SlideShow();
-    </script>
+        indexValue++;
+        if (indexValue > elements.length) {
+            indexValue = 1;
+        }
+        elements[indexValue - 1].style.display = "block";
+    }
+    SlideShow();
+</script>
 
-    {% endblock %}
+{% endblock %}
 
 
-    {% block footer %}
-    {% endblock %}
+{% block footer %}
+{% endblock %}
