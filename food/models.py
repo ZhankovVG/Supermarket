@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 
@@ -29,6 +30,9 @@ class Manufacturer(models.Model):
         verbose_name = 'Производитель'
         verbose_name_plural = 'Производители'
 
+    def get_absolute_url(self):
+        return reverse('country', kwargs={'slag' : self.name})
+
 
 class Product(models.Model):
     # Продукты
@@ -49,6 +53,9 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+
+    def get_absolute_url(self):
+        return reverse('datail', kwargs={'slug' : self.url})
 
 
 class RetingsStar(models.Model):

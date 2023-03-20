@@ -1,0 +1,44 @@
+{% extends 'food/layout.html' %}
+{% load static %}
+
+{% block title %}
+{{ product.title }}
+{% endblock %}
+
+
+{% block content %}
+<div class="detail_product">
+    <div class="block">
+        <img class="photo_detail" src="{{ product.photo.url }}" alt="photo">
+        <ul>
+            <h3>{{ product.title }}</h3>
+            <li style="text-decoration: underline chocolate;">{{ product.weight }} г</li>
+            <li>{{ product.price }} грн.</li>
+            <a href="#" class="btn btn-warning"><i class="bi bi-cart3"></i> В корзину</a>
+            <div class="description">
+                {{ product.description | truncatewords:3 }}
+                <a href="#" class="read-more">Читать далее</a>
+            </div>
+            <p>
+                <img class="shopping" src="{% static 'food/img/shopping.png' %}" alt="online-photo">
+                Купуйте онлайн та заощаджуйте.
+            </p>
+            {% for country in product.manufacturer.all %}
+            {{ country.name }}
+            <img class="country_image" src="{{ country.image.url }}" alt="country_image">
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+
+<script>
+    document.querySelector('.read-more').addEventListener('click', function (event) {
+        event.preventDefault();
+        var description = document.querySelector('.description');
+        description.innerHTML = '{{ product.description }}';
+    });
+</script>
+
+{% endblock %}

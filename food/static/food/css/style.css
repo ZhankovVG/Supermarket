@@ -83,11 +83,11 @@ button {
 /* output of products start */
 
 .container {
-    width:250px; 
-    float:left; 
-    margin-bottom:20px; 
-    height:350px; 
-    overflow:hidden;
+    width: 250px;
+    float: left;
+    margin-bottom: 20px;
+    height: 350px;
+    overflow: hidden;
     transition: transform 0.8s ease;
 }
 
@@ -112,6 +112,11 @@ button {
     flex-direction: column;
 }
 
+.info a {
+    text-decoration: none;
+    color: rgb(12, 11, 4);
+}
+
 
 @media (max-width: 768px) {
     .container {
@@ -124,3 +129,58 @@ button {
 }
 
 /* output of products end */
+
+
+/* datail_start */
+
+.detail_product {
+    background-color: #f5d7c6;
+}
+
+.photo_detail {
+    width: 350px;
+}
+
+.photo_detail {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.block {
+    position: absolute;
+    top: 36%;
+    left: 17%;
+    margin: -111px 0 0 -111px;
+}
+
+.block ul {
+    line-height: 3;
+    float: right;
+    margin-top: 30px;
+    list-style: none;
+}
+
+.read-more {
+    color: rgb(35, 12, 245);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.shopping {
+    width: 150px;
+}
+
+.description {
+    width: 400px;
+}
+
+.Manufacturer {
+    width: 100px;
+    float: bottom;
+}
+
+.country_image {
+    width: 50px;
+}
+
+/* datail_end */

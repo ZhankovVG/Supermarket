@@ -25,11 +25,12 @@
 <main>
     {% for product in product_list %}
     <div class="container">
-        <img class="photo" src="{{ product.photo.url }}">
+        <img class="photo" src="{{ product.photo.url }}" alt="photo">
         <div class="info">
             <ul>
-                {{ title.get_absolute.url }}
-                <h3>{{product.title}}</h3>
+                <a href="{{ product.get_absolute_url }}">
+                    <h3>{{ product.title }}</h3>
+                </a>               
                 <li>{{ product.price }} грн</li>
                 <li>{{ product.weight }} гр.</li>
             </ul>
