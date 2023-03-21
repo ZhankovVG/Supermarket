@@ -24,7 +24,8 @@
                 Купуйте онлайн та заощаджуйте.
             </p>
             {% for country in product.manufacturer.all %}
-            {{ country.name }}
+            <h3>Производитель :</h3>
+            <a href="#">{{ country.name }}</a>
             <img class="country_image" src="{{ country.image.url }}" alt="country_image">
             {% endfor %}
         </ul>

@@ -85,7 +85,7 @@ button {
 .container {
     width: 250px;
     float: left;
-    margin-bottom: 20px;
+    margin-top: 20px;
     height: 350px;
     overflow: hidden;
     transition: transform 0.8s ease;
@@ -93,6 +93,10 @@ button {
 
 .container:hover {
     transform: scale(1.1);
+}
+
+.container:hover {
+    box-shadow: 3px 3px 5px rgba(122, 115, 115, 0.5);
 }
 
 .container ul li {
@@ -181,6 +185,7 @@ button {
 
 .country_image {
     width: 50px;
+    text-decoration: none;
 }
 
 /* datail_end */
