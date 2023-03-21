@@ -29,9 +29,13 @@
             <a class="active" href="{% url 'home' %}">Главная</a>
             <a href="#"><i class="bi bi-list"></i> Все товары</a>
             <a href="#"><i class="bi bi-basket"></i> Личный кабинет</a>
-            <a href="#">Выход</a>
-            <a href="#">Вход</a>
-            <a href="#">Регистрация</a>
+            {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+            <a href="{% url 'account_logout' %}">Выход</a>
+            {% else %}
+            <a href="{% url 'account_login' %}">Вход</a>
+            <a href="{% url 'account_signup' %}">Регистрация</a>
+            {% endif %}
         </nav>
     </header>
 
