@@ -31,7 +31,7 @@ class Manufacturer(models.Model):
         verbose_name_plural = 'Производители'
 
     def get_absolute_url(self):
-        return reverse('country', kwargs={'slag' : self.name})
+        return reverse('country', kwargs={'slug' : self.name})
 
 
 class Product(models.Model):

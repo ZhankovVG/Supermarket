@@ -24,3 +24,6 @@ class ProductDatailView(DetailView):
 class CountryDatailView(DetailView):
     model = Manufacturer
     template_name = 'food/country.html'
+    slug_field = 'name'
+
+ 

@@ -188,4 +188,8 @@ button {
     text-decoration: none;
 }
 
+.country {
+    float: left;
+}
+
 /* datail_end */

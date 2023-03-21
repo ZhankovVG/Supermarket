@@ -20,21 +20,21 @@
             <a href="{% url 'home' %}"><img src="{% static 'food/img/Silpo.png' %}" alt=""></a>
             <div class="search">
                 <form action="{% url 'search' %}" method="get">
-                    <input type="search" placeholder="Поиск ..." name="search">
-                    <button type="submit" class="btn btn-info">Найти</button>
+                    <input type="search" placeholder="Пошук ..." name="search">
+                    <button type="submit" class="btn btn-info">Знайти</button>
                 </form>
             </div>
         </div>
         <nav>
-            <a class="active" href="{% url 'home' %}">Главная</a>
-            <a href="#"><i class="bi bi-list"></i> Все товары</a>
-            <a href="#"><i class="bi bi-basket"></i> Личный кабинет</a>
+            <a class="active" href="{% url 'home' %}">Головна</a>
+            <a href="#"><i class="bi bi-list"></i> Всі товари</a>
+            <a href="#"><i class="bi bi-basket"></i> Кошик</a>
             {% if user.is_authenticated %}
             <span>{{ user.username }}</span>
-            <a href="{% url 'account_logout' %}">Выход</a>
+            <a href="{% url 'account_logout' %}">Вихід</a>
             {% else %}
-            <a href="{% url 'account_login' %}">Вход</a>
-            <a href="{% url 'account_signup' %}">Регистрация</a>
+            <a href="{% url 'account_login' %}">Вхід</a>
+            <a href="{% url 'account_signup' %}">Реєстрація</a>
             {% endif %}
         </nav>
     </header>

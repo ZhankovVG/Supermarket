@@ -1,6 +1,15 @@
 {% extends 'food/layout.html' %}
-{% load static %}
 
 {% block title %}
 {{ Manufacturer.name }}
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <img src="{{ manufacturer.image.url }}" alt="country_image">
+    {{ manufacturer.name }} <br>
+    {{ manufacturer.image }} <br>
+    {{ manufacturer.description }}
+</div>
 {% endblock %}

@@ -14,20 +14,23 @@
             <h3>{{ product.title }}</h3>
             <li style="text-decoration: underline chocolate;">{{ product.weight }} г</li>
             <li>{{ product.price }} грн.</li>
-            <a href="#" class="btn btn-warning"><i class="bi bi-cart3"></i> В корзину</a>
+            <a href="#" class="btn btn-warning"><i class="bi bi-cart3"></i> В кошик</a>
             <div class="description">
                 {{ product.description | truncatewords:3 }}
-                <a href="#" class="read-more">Читать далее</a>
+                <a href="#" class="read-more">Читати далі</a>
             </div>
             <p>
                 <img class="shopping" src="{% static 'food/img/shopping.png' %}" alt="online-photo">
                 Купуйте онлайн та заощаджуйте.
             </p>
-            {% for country in product.manufacturer.all %}
-            <h3>Производитель :</h3>
-            <a href="#">{{ country.name }}</a>
-            <img class="country_image" src="{{ country.image.url }}" alt="country_image">
-            {% endfor %}
+            <div class="country">            
+                {% for country in product.manufacturer.all %}
+                <h3>Виробник :</h3>
+                <a href="{{ country.get_absolute_url }}" style="text-decoration: none;">{{ country.name }}</a>
+                <img class="country_image" src="{{ country.image.url }}" alt="country_image">
+                <span>{{ country.description | truncatewords:3 }}</span>
+                {% endfor %}
+            </div>
         </ul>
     </div>
 </div>
