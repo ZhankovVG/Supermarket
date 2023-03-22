@@ -8,6 +8,12 @@ class ProductsView(ListView):
     model = Product
     queryset = Product.objects.filter(draft=False)
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+        
+
 
 class Search(ListView):
     # поиск продуктов
