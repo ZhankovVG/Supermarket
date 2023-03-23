@@ -6,10 +6,9 @@
 
 
 {% block content %}
-<div>
-    <img src="{{ manufacturer.image.url }}" alt="country_image">
-    {{ manufacturer.name }} <br>
-    {{ manufacturer.image }} <br>
-    {{ manufacturer.description }}
+<div class="country-box">
+    <h1><b>{{ manufacturer.name }}</b></h1> <br>
+    <img src="{{ manufacturer.image.url }}" alt="country_image"> <br><br>
+    <p>{{ manufacturer.description }}</p>
 </div>
 {% endblock %}

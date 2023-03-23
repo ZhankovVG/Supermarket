@@ -224,3 +224,17 @@ button {
 }
 
 /* datail_end */
+
+/* country_start */
+
+
+.country-box img {
+    width: 300px;
+}
+
+.country-box {
+    margin-left: 50px;
+}
+
+
+/* country_end */
