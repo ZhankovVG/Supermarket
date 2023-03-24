@@ -61,7 +61,7 @@ class Product(models.Model):
         return reverse('datail', kwargs={'slug' : self.url})
 
 
-class RetingsStar(models.Model):
+class RatingsStar(models.Model):
     # Звезда рейтинга
     value = models.PositiveSmallIntegerField('Значение', default=0)
 
@@ -74,10 +74,10 @@ class RetingsStar(models.Model):
         ordering = ['-value']
 
 
-class Reting(models.Model):
+class Rating(models.Model):
     # Рейтинг
     ip = models.CharField('IP адресс', max_length=50)
-    star = models.ForeignKey(RetingsStar, on_delete=models.CASCADE, verbose_name='Звезда')
+    star = models.ForeignKey(RatingsStar, on_delete=models.CASCADE, verbose_name='Звезда')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
 
     def __str__(self):

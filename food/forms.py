@@ -5,10 +5,10 @@ from .models import  *
 class RatingForm(forms.ModelForm):
     # Форма добавления рейтинга
     star = forms.ModelChoiceField(
-        queryset=RetingsStar.objects.all(), widget=forms.RadioSelect(),
+        queryset=RatingsStar.objects.all(), widget=forms.RadioSelect(),
         empty_label=None
     )
 
     class Meta:
-        model = Reting
+        model = Rating
         fields = ('star',)

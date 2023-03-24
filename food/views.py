@@ -50,7 +50,7 @@ class CategoryDetailView(Mix, DetailView):
     
 
 class AddStarsRating(View):
-    """Добавление рейтинга фильму"""
+    # Добавление рейтинга фильму
     def get_client_ip(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
@@ -62,7 +62,7 @@ class AddStarsRating(View):
     def post(self, request):
         form = RatingForm(request.POST)
         if form.is_valid():
-            Reting.objects.update_or_create(
+            Rating.objects.update_or_create(
                 ip=self.get_client_ip(request),
                 product_id=int(request.POST.get("product")),
                 defaults={'star_id': int(request.POST.get("star"))}

@@ -47,9 +47,9 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'url' : ('title',)}
 
 
-@admin.register(RetingsStar)
+@admin.register(RatingsStar)
 # Звезда рейтинга
-class RetingsStarAdmin(admin.ModelAdmin):
+class RatingsStarAdmin(admin.ModelAdmin):
     list_display = ('value',)
     list_display_links = ('value',)
 
@@ -62,7 +62,7 @@ class CommentsAdmin(admin.ModelAdmin):
     readonly_fields = ('name', 'email')
 
 
-@admin.register(Reting)
+@admin.register(Rating)
 # Звезда
-class RetingStarAdmin(admin.ModelAdmin):
+class RatingStarAdmin(admin.ModelAdmin):
     list_display = ('star', 'product', 'ip')
