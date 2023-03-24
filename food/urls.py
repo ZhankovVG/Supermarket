@@ -8,4 +8,5 @@ urlpatterns = [
     path('<slug:slug>', views.ProductDatailView.as_view(), name='datail'),
     path('country/<str:slug>', views.CountryDatailView.as_view(), name='country'),
     path('category/<slug:slug>/', views.CategoryDetailView.as_view(), name='category'),
+    path('add-rating/', views.AddStarsRating.as_view(), name='add_rating'),
 ]

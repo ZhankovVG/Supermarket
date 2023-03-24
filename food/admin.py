@@ -60,3 +60,9 @@ class CommentsAdmin(admin.ModelAdmin):
     list_display = ('name', 'text', 'email')
     list_display_links = ('name',)
     readonly_fields = ('name', 'email')
+
+
+@admin.register(Reting)
+# Звезда
+class RetingStarAdmin(admin.ModelAdmin):
+    list_display = ('star', 'product', 'ip')
