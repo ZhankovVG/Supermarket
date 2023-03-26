@@ -27,14 +27,18 @@
         </div>
         <nav>
             <a class="active" href="{% url 'home' %}">Головна</a>
+
+
             <div class="category">
                 <button class="category"><i class="bi bi-list"></i> Всі товари</button>
                 <div class="dropdown-content">
-                    {% for category in categories %}
-                  <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-                  {% endfor %}
+                    {% for product in categories %}
+                    <a href="">{{ product.name }}</a>
+                    {% endfor %}
                 </div>
-              </div>
+            </div>
+
+            
             <a href="#"><i class="bi bi-basket"></i> Кошик</a>
             {% if user.is_authenticated %}
             <span>{{ user.username }}</span>

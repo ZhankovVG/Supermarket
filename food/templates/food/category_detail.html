@@ -1,25 +1,6 @@
 {% extends 'food/layout.html' %}
 
+{% block title %}{% endblock %}
+
 {% block content %}
-  <h1>{{ category.name }}</h1>
-  <p>{{ category.description }}</p>
-
-
-    {% for product in product_list %}
-        {% if product.category == category %}
-            <div class="container">
-                <img class="photo" src="{{ product.photo.url }}" alt="photo">
-                <div class="info">
-                    <ul>
-                        <a href="{{ product.get_absolute_url }}">
-                            <h3>{{ product.title }}</h3>
-                        </a>               
-                        <li>{{ product.price }} грн</li>
-                        <li>{{ product.weight }} гр.</li>
-                    </ul>
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-
 {% endblock %}
