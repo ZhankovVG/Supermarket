@@ -1,8 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import get_object_or_404, render, HttpResponse
 from django.views.generic import ListView, DetailView, View
 from .models import *
 from .forms import *
-
 
 
 class Mix:
@@ -18,12 +17,12 @@ class ProductsView(Mix, ListView):
     model = Product
     queryset = Product.objects.filter(draft=False)
 
-    
+
 class Search(Mix, ListView):
     # поиск продуктов
     def get_queryset(self):
-        return Product.objects.filter(title__icontains =self.request.GET.get('search'))
-    
+        return Product.objects.filter(title__icontains=self.request.GET.get('search'))
+
 
 class ProductDatailView(Mix, DetailView):
     # полное описание продукта
@@ -42,12 +41,13 @@ class CountryDatailView(Mix, DetailView):
     template_name = 'food/country.html'
     slug_field = 'name'
 
- 
-class CategoryDetailView(Mix, DetailView):
-    # Вывод категорий
-    model = Category
-    slug_field = 'url'
-    
+
+class PostCategoryView(Mix, DetailView):
+    def get(self, request, slug):
+        # вывод по категориям
+        posts = Product.objects.filter(category__url=slug)
+        return render(request, 'food/category_detail.html', {'posts' : posts})
+
 
 class AddStarsRating(View):
     # Добавление рейтинга фильму

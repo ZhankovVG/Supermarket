@@ -47,7 +47,7 @@ class Product(models.Model):
     draft = models.BooleanField('В наличии', default=False)
     url = models.SlugField(max_length=150, unique=True)
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True, verbose_name='Категории')
+        Category, on_delete=models.SET_NULL, null=True, verbose_name='Категория')
     manufacturer = models.ManyToManyField(Manufacturer, verbose_name='Производитель')
 
     def __str__(self):
