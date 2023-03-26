@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render, HttpResponse
+from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
 from django.views.generic import ListView, DetailView, View
 from .models import *
 from .forms import *
@@ -68,3 +68,15 @@ class AddStarsRating(View):
             return HttpResponse(status=201)
         else:
             return HttpResponse(status=400)
+        
+
+class AddComments(View):
+    # Отзывы
+    def post(self, request, pk):
+        form = CommentsForm(request.POST)
+        product = Product.objects.get(id = pk)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.product = product
+            form.save()
+        return redirect(product.get_absolute_url())

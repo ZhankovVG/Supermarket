@@ -12,3 +12,14 @@ class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
         fields = ('star',)
+
+
+class CommentsForm(forms.ModelForm):
+    # добавление коментария
+    class Meta:
+        model = Comments
+        fields = (
+            'name', 'text', 'email'
+        )
+            
+        

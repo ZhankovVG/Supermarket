@@ -9,4 +9,5 @@ urlpatterns = [
     path('country/<str:slug>', views.CountryDatailView.as_view(), name='country'),
     # path('category/', views.PostCategoryView.as_view(), name='category'),
     path('add-rating/', views.AddStarsRating.as_view(), name='add_rating'),
+    path('comments/<int:pk>/', views.AddComments.as_view(), name='add_comments'),
 ]
