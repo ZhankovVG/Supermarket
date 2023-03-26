@@ -276,3 +276,22 @@ button {
 }
 
 /* //Checkbox stars end*/
+
+/* comments start */
+
+.comments {
+    float: left;
+    margin-right: 100%;
+}
+
+.input-email, .text-user {
+    margin-top: 5px;
+}
+
+.comments-user {
+    margin-top: -200px;
+    float: right;
+    margin-left: 30em;
+}
+
+/* comments end */
