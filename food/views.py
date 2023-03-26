@@ -42,11 +42,9 @@ class CountryDatailView(Mix, DetailView):
     slug_field = 'name'
 
 
-class PostCategoryView(Mix, DetailView):
-    def get(self, request, slug):
-        # вывод по категориям
-        posts = Product.objects.filter(category__url=slug)
-        return render(request, 'food/category_detail.html', {'posts' : posts})
+# class PostCategoryView(Mix, DetailView):
+    # вывод продуктов по гатегории
+
 
 
 class AddStarsRating(View):

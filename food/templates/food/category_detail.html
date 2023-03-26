@@ -3,15 +3,28 @@
 
 {% block title %}{{ product.title }}{% endblock %}
 
+{% block title %}{% endblock %}
+
 {% block content %}
-<main>
-    <div class="post">
-        {% if posts.photo %}
-            <p><img src="{{ posts.photo.url }}" alt="photo-men"></p>
+  <h1>{{ category.name }}</h1>
+  <p>{{ category.description }}</p>
+
+
+    {% for product in product_list %}
+        {% if product.category == category %}
+            <div class="container">
+                <img class="photo" src="{{ product.photo.url }}" alt="photo">
+                <div class="info">
+                    <ul>
+                        <a href="{{ product.get_absolute_url }}">
+                            <h3>{{ product.title }}</h3>
+                        </a>               
+                        <li>{{ product.price }} грн</li>
+                        <li>{{ product.weight }} гр.</li>
+                    </ul>
+                </div>
+            </div>
         {% endif %}
-        <h2>{{ posts.title }}</h2>       
-        <p>{{ posts.content | linebreaks }}</p>   
-        asdasd      
-    </div>
-</main>
+    {% endfor %}
+
 {% endblock %}
