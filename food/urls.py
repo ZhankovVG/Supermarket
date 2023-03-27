@@ -7,7 +7,7 @@ urlpatterns = [
     path('search/', views.Search.as_view(), name='search'),
     path('<slug:slug>', views.ProductDatailView.as_view(), name='datail'),
     path('country/<str:slug>', views.CountryDatailView.as_view(), name='country'),
-    # path('category/', views.PostCategoryView.as_view(), name='category'),
+    path('category/<slug:cat_slug>/', views.PostCategoryView.as_view(), name='category'),
     path('add-rating/', views.AddStarsRating.as_view(), name='add_rating'),
     path('comments/<int:pk>/', views.AddComments.as_view(), name='add_comments'),
 ]

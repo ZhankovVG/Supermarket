@@ -15,9 +15,10 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+        ordering = ['id']
 
     def get_absolute_url(self):
-        return reverse('category', kwargs={'slug' : self.url})
+        return reverse('category', kwargs={'cat_slug' : self.url})
 
 
 class Manufacturer(models.Model):

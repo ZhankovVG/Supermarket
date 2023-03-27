@@ -18,13 +18,13 @@ class ProductsView(Mix, ListView):
     queryset = Product.objects.filter(draft=False)
 
 
-class Search(Mix, ListView):
+class Search(ListView):
     # поиск продуктов
     def get_queryset(self):
         return Product.objects.filter(title__icontains=self.request.GET.get('search'))
 
 
-class ProductDatailView(Mix, DetailView):
+class ProductDatailView(DetailView):
     # полное описание продукта
     model = Product
     slug_field = 'url'
@@ -35,20 +35,25 @@ class ProductDatailView(Mix, DetailView):
         return context
 
 
-class CountryDatailView(Mix, DetailView):
+class CountryDatailView(DetailView):
     # Вывод стран
     model = Manufacturer
     template_name = 'food/country.html'
     slug_field = 'name'
 
 
-# class PostCategoryView(Mix, DetailView):
+class PostCategoryView(ListView):
     # вывод продуктов по гатегории
+    model = Product
+    template_name = 'food/product_list.html'
+    context_object_name = 'posts'
 
+    def get_queryset(self):
+        return Product.objects.filter(category__slug=self.kwargs['cat_slug'])
 
 
 class AddStarsRating(View):
-    # Добавление рейтинга фильму
+    # Добавление рейтинга продуктам
     def get_client_ip(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
