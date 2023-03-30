@@ -70,9 +70,6 @@ class AddStarsRating(View):
                 product_id=int(request.POST.get("product")),
                 defaults={'star_id': int(request.POST.get("star"))}
             )
-            return HttpResponse(status=201)
-        else:
-            return HttpResponse(status=400)
         
 
 class AddComments(View):
