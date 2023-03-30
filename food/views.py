@@ -24,7 +24,7 @@ class Search(ListView):
         return Product.objects.filter(title__icontains=self.request.GET.get('search'))
 
 
-class ProductDatailView(DetailView):
+class ProductDatailView(Mix, DetailView):
     # полное описание продукта
     model = Product
     slug_field = 'url'
@@ -35,21 +35,21 @@ class ProductDatailView(DetailView):
         return context
 
 
-class CountryDatailView(DetailView):
+class CountryDatailView(Mix, DetailView):
     # Вывод стран
     model = Manufacturer
     template_name = 'food/country.html'
     slug_field = 'name'
 
 
-class PostCategoryView(ListView):
+class PostCategoryView(Mix, ListView):
     # вывод продуктов по гатегории
     model = Product
     template_name = 'food/product_list.html'
     context_object_name = 'posts'
 
     def get_queryset(self):
-        return Product.objects.filter(category__slug=self.kwargs['cat_slug'])
+        return Product.objects.filter(category__name=self.kwargs['cat_slug'])
 
 
 class AddStarsRating(View):
