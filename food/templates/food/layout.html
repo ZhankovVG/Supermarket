@@ -22,7 +22,29 @@
                 <form action="{% url 'search' %}" method="get">
                     <input type="search" placeholder="Пошук ..." name="search">
                     <button type="submit" class="btn btn-info">Знайти</button>
-          
+                </form>
+            </div>
+        </div>
+        <nav>
+            <a class="active" href="{% url 'home' %}">Головна</a>
+
+
+            <div class="category">
+                <button class="category"><i class="bi bi-list"></i> Всі товари</button>
+                <div class="dropdown-content">
+                    {% for product in categories %}    
+                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>             
+                    {% endfor %}
+                </div>
+            </div>
+
+            
+            <a href="#"><i class="bi bi-basket"></i> Кошик</a>
+            {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+            <a href="{% url 'account_logout' %}">Вихід</a>
+            {% else %}
+            <a href="{% url 'account_login' %}">Вхід</a>
             <a href="{% url 'account_signup' %}">Реєстрація</a>
             {% endif %}
         </nav>
