@@ -46,10 +46,10 @@ class PostCategoryView(Mix, ListView):
     # вывод продуктов по гатегории
     model = Product
     template_name = 'food/product_list.html'
-    context_object_name = 'posts'
 
     def get_queryset(self):
-        return Product.objects.filter(category__name=self.kwargs['cat_slug'])
+        category = get_object_or_404(Category, url=self.kwargs['cat_slug'])
+        return Product.objects.filter(category=category, draft=False)
 
 
 class AddStarsRating(View):
