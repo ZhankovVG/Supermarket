@@ -48,7 +48,7 @@
                 <span>{{ country.description | truncatewords:3 }}</span>
                 {% endfor %}
             </div>
-        </ul>
+        </ul><br>
         <div class="comments">
             <form action="{% url 'add_comments' product.id %}" method="post">
                 <h2>Ваш коментарий </h2>
