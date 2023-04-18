@@ -12,7 +12,7 @@
         <img class="photo_detail" src="{{ product.photo.url }}" alt="photo">
         <ul>
             <h3>{{ product.title }}</h3>
-
+            <hr>
             <form action="{% url 'add_rating' %}" method="post" name="rating">
                 <b>Рейтинг: </b>
                 {% csrf_token %}
@@ -31,11 +31,13 @@
 
             <li style="text-decoration: underline chocolate;">{{ product.weight }} г</li>
             <li>{{ product.price }} грн.</li>
-            <a href="#" class="btn btn-warning"><i class="bi bi-cart3"></i> В кошик</a>
+            <button class="btn btn-warning"><i class="bi bi-cart3"></i> В кошик</button></i>
+            <hr>
             <div class="description">
                 {{ product.description | truncatewords:3 }}
                 <a href="#" class="read-more">Читати далі</a>
             </div>
+            <hr>
             <p>
                 <img class="shopping" src="{% static 'food/img/shopping.png' %}" alt="online-photo">
                 Купуйте онлайн та заощаджуйте.
@@ -47,6 +49,7 @@
                 <img class="country_image" src="{{ country.image.url }}" alt="country_image">
                 <span>{{ country.description | truncatewords:3 }}</span>
                 {% endfor %}
+                <hr>
             </div>
         </ul><br>
         <div class="comments">
