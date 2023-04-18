@@ -10,6 +10,11 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'food/css/style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
     <link rel="shortcut icon" href="{% static 'food/img/Silpo.png' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -32,13 +37,13 @@
             <div class="category">
                 <button class="category"><i class="bi bi-list"></i> Всі товари</button>
                 <div class="dropdown-content">
-                    {% for product in categories %}    
-                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>             
+                    {% for product in categories %}
+                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
                     {% endfor %}
                 </div>
             </div>
 
-            
+
             <a href="#"><i class="bi bi-basket"></i> Кошик</a>
             {% if user.is_authenticated %}
             <span>{{ user.username }}</span>
@@ -58,6 +63,14 @@
         {% block footer %}
         {% endblock %}
     </footer>
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        alertify.set('notifier', 'position', 'top-right');
+        {% for msg in messages %}
+        alertify.success(' {{ msg }} ');
+        {% endfor %}
+    </script>
 </body>
 
 </html>
