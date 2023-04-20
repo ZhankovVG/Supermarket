@@ -3,10 +3,13 @@ from django.views.decorators.http import require_POST
 from food.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
+from food.models import Category
+
 
 
 @require_POST
 def cart_add(request, product_id):
+    # добавление продуктов в корзину
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     form = CartAddProductForm(request.POST)
@@ -19,6 +22,7 @@ def cart_add(request, product_id):
 
 
 def cart_remove(request, product_id):
+    # удаление продуктов из корзины
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
@@ -26,8 +30,10 @@ def cart_remove(request, product_id):
 
 
 def cart_detail(request):
+    # то что находится в корзине
     cart = Cart(request)
+    categories = Category.objects.all()
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
                                                                    'update': True})
-    return render(request, 'cart/detail.html', {'cart': cart})
+    return render(request, 'cart/detail.html', {'cart': cart, 'categories': categories})

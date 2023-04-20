@@ -44,7 +44,7 @@
             </div>
 
 
-            <a href="#"><i class="bi bi-basket"></i> Кошик</a>
+            <a href="{% url 'cart:cart_detail' %}"><i class="bi bi-basket"></i> Кошик</a>
             {% if user.is_authenticated %}
             <span>{{ user.username }}</span>
             <a href="{% url 'account_logout' %}">Вихід</a>
