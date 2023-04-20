@@ -78,7 +78,7 @@ button {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -89,7 +89,9 @@ button {
     display: block;
 }
 
-.category:hover .dropdown-content {display: block;}
+.category:hover .dropdown-content {
+    display: block;
+}
 
 /* header end */
 
@@ -247,12 +249,12 @@ button {
     height: 30px;
 }
 
-.rating > input {
+.rating>input {
     opacity: 0;
     margin-right: -100%;
 }
 
-.rating > label {
+.rating>label {
     position: relative;
     display: block;
     float: right;
@@ -260,7 +262,7 @@ button {
     background-size: 30px 30px;
 }
 
-.rating > label:before {
+.rating>label:before {
     display: block;
     opacity: 0;
     content: '';
@@ -271,7 +273,9 @@ button {
     transition: opacity 0.2s linear;
 }
 
-.rating > label:hover:before, .rating > label:hover ~ label:before, .rating:not(:hover) > :checked ~ label:before {
+.rating>label:hover:before,
+.rating>label:hover~label:before,
+.rating:not(:hover)> :checked~label:before {
     opacity: 1;
 }
 
@@ -284,7 +288,8 @@ button {
     margin-right: 100%;
 }
 
-.input-email, .text-user {
+.input-email,
+.text-user {
     margin-top: 5px;
 }
 
@@ -295,3 +300,75 @@ button {
 }
 
 /* comments end */
+
+
+/* cart ctart */
+
+
+table.cart {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.cart th,
+table.cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table.cart th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+
+table.cart tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.cart tr:hover {
+    background-color: #ddd;
+}
+
+table.cart td.num {
+    text-align: right;
+}
+
+table.cart td a {
+    color: #333;
+    text-decoration: none;
+}
+
+table.cart td a:hover {
+    text-decoration: underline;
+}
+
+p.text-right {
+    text-align: right;
+    margin-top: 20px;
+}
+
+p.text-right a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+p.text-right a.button.light {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+}
+
+p.text-right a.button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+
+/* cart end */
