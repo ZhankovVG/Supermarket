@@ -4,8 +4,31 @@ from food.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 from food.models import Category
+from .forms import PaymentForm
 
 
+
+def payment(request):
+    categories = Category.objects.all()
+    form = PaymentForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        first_name = form.cleaned_data['first_name']
+        last_name = form.cleaned_data['last_name']
+        phone = form.cleaned_data['phone']
+        amount = form.cleaned_data['amount']
+
+        context = {
+            'first_name': first_name,
+            'last_name': last_name,
+            'phone': phone,
+            'amount': amount,
+            'categories': categories,
+        }
+
+        return render(request, 'cart/payment_confirmation.html', {'context': context})
+
+    return render(request, 'cart/payment.html', {'form': form, 'categories': categories})
 
 @require_POST
 def cart_add(request, product_id):
