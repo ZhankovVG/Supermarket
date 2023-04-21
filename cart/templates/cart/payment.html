@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'food/layout.html' %}
+
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="Add-customer">
+        <form action="/charge" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <label for="card-element">
+                    Кредитная карта или дебетовая карта
+                </label>
+                <div id="card-element">
+    
+                </div>
+            </div>
+        </form>
+        <form method="POST" action="{% url 'cart:payment' %}">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="Имя">
+            <input type="text" name="last_name" placeholder="Фамилия">
+            <input type="text" name="phone" placeholder="Телефон">
+            <input type="text" name="amount" placeholder="Сумма">
+            <input type="submit" value="Оплатить">
+        </form>
+    </div>
+
+
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('your_publishable_key');
+        var elements = stripe.elements();
+
+        // Создание элемента Card
+        var card = elements.create('card');
+
+        // Вставка элемента Card в форму оплаты
+        card.mount('#card-element');
+    </script>
+    {% endblock %}
+</body>
+
+</html>
