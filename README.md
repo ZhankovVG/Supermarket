@@ -11,7 +11,7 @@
 
 ## About the project
 
-In this project, I tried to reproduce the COL site. Implemented various transitions, category selection and product selection from the category. Registration completed. As well as the withdrawal of goods to the basket and the purchase of the selected product. And also connected some JS code for a beautiful design.
+In this project, I tried to reproduce Silpo's site. Implemented various transitions, category selection and product selection from the category. Registration completed. As well as the withdrawal of goods to the basket and the purchase of the selected product. And also connected some JS code for a beautiful design.
 
 ## Documentation
 
