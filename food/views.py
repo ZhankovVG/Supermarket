@@ -3,6 +3,8 @@ from django.views.generic import ListView, DetailView, View
 from .models import *
 from .forms import *
 from cart.forms import CartAddProductForm
+from .tasks import send_registration_email
+from allauth.account.views import SignupView
 
 
 class Mix:
@@ -87,3 +89,12 @@ class AddComments(View):
             form.product = product
             form.save()
         return redirect(product.get_absolute_url())
+    
+    
+class CustomSignupView(SignupView):
+    # Storing user registration information in Redis
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        email = form.cleaned_data.get('email')
+        send_registration_email.delay(email)
+        return response

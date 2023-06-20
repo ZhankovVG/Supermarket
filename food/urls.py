@@ -10,4 +10,5 @@ urlpatterns = [
     path('category/<slug:cat_slug>/', views.PostCategoryView.as_view(), name='category'),
     path('add-rating/', views.AddStarsRating.as_view(), name='add_rating'),
     path('comments/<int:pk>/', views.AddComments.as_view(), name='add_comments'),
+    path('signup/', views.CustomSignupView.as_view(), name='signup'),
 ]

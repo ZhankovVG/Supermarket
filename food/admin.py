@@ -9,7 +9,6 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'url')
     prepopulated_fields = {'url' : ('name',)}
 
-
 class CommentsInline(admin.StackedInline):
     model = Comments
     extra = 1
