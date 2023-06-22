@@ -15,6 +15,8 @@ In this project, I tried to reproduce Silpo's site. Implemented various transiti
 
 ## Documentation
 
+Added Celery to asynchronously send user registration message
+
 Description of routes:
 
 - "An empty path that displays the main page. View class: views.ProductsView.as_view() URL name: 'home'" <br>
